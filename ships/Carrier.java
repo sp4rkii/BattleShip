@@ -1,5 +1,5 @@
 package ships;
 
-public class Lship {
+public class Carrier {
     
 }
