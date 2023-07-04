@@ -1,8 +1,7 @@
 package ships;
 
-public class LongShip {
-    int x;
-    int y;
-    int z;
-    
+public class LongShip extends Ships {
+    public LongShip() {
+        super(4);
+    }
 }

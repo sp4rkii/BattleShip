@@ -1,5 +1,7 @@
 package ships;
 
-public class Carrier {
-    int khod;
+public class Carrier extends Ships {
+    public Carrier() {
+        super(5);
+    }
 }

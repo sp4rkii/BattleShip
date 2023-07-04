@@ -1,4 +1,4 @@
-package Bomb;
+package bomb;
 
 public class clear {
     
