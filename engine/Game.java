@@ -1,6 +1,7 @@
 package engine;
 
 import maps.*;
+import shipExceptions.outOfBoundsException;
 import ships.*;
 import java.awt.*;
 
@@ -29,16 +30,15 @@ public class Game {
         this.ship = ship;
     }
 
-    public void rotateShip() {
+    public void rotateShip() throws outOfBoundsException {
         ship.rotate();
         Point[] Coordinates = ship.getCoordinates();
         for (int i = 0; i < ship.getCoordinates().length; i++) {
             int x = (int) Coordinates[i].getX();
             int y = (int) Coordinates[i].getY();
             if (y < 0 || y > 14 || x < 0 || x > 14) {
-
+                throw new outOfBoundsException("Invalid coordinates");
             }
-
         }
     }
 
