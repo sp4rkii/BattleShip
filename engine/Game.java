@@ -75,9 +75,9 @@ public class Game {
             for (int i = 0; i < ship.getCoordinates().length; i++) {
                 int x = (int) Coordinates[i].getX();
                 int y = (int) Coordinates[i].getY();
-                map.getMap()[x][y]=ship;
+                map.getMap()[x][y] = ship;
             }
-            ship=new Empty();
+            ship = new Empty();
         }
     }
 }
