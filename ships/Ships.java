@@ -53,4 +53,6 @@ public abstract class Ships {
     public boolean isDead() {
         return spaces == 0;
     }
+
+    public abstract void rotate();
 }

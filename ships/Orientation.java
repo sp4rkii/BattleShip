@@ -1,5 +1,6 @@
 package ships;
 
 enum Orientation {
-    HORIZONTAL, VERTICAL
+    HORIZONTAL,
+    VERTICAL
 }
