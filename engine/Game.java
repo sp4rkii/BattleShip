@@ -31,7 +31,7 @@ public class Game {
         this.ship = ship;
     }
 
-    public void rotateShip() throws outOfBoundsException,overlapException {
+    public void rotateShip() throws outOfBoundsException, overlapException {
         ship.rotate();
         Point[] Coordinates = ship.getCoordinates();
         for (int i = 0; i < ship.getCoordinates().length; i++) {
@@ -40,13 +40,13 @@ public class Game {
             if (y < 0 || y > 14 || x < 0 || x > 14) {
                 throw new outOfBoundsException("Invalid coordinates");
             }
-            for(int j=0;j<ships.size();j++){
-                Ships temp=ships.get(j);
-                if(!(ship.getClass() == temp.getClass())){
-                    for(int k=0;k<temp.getCoordinates().length;k++){
-                         int m = (int) Coordinates[k].getX();
-                         int n = (int) Coordinates[k].getY();
-                        if(x==m && y==n){
+            for (int j = 0; j < ships.size(); j++) {
+                Ships temp = ships.get(j);
+                if (!(ship.getClass() == temp.getClass())) {
+                    for (int k = 0; k < temp.getCoordinates().length; k++) {
+                        int m = (int) Coordinates[k].getX();
+                        int n = (int) Coordinates[k].getY();
+                        if (x == m && y == n) {
                             throw new overlapException("Overlapped ships");
                         }
                     }
@@ -63,5 +63,5 @@ public class Game {
             }
         }
     }
-    
+
 }
