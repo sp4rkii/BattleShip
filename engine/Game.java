@@ -11,7 +11,6 @@ public class Game {
     private ArrayList<Ships> Availableships = new ArrayList<Ships>();
     private ArrayList<Ships> ships = new ArrayList<Ships>();
     private Ships ship = new Empty();
-    private Map Emap;
     private Map map;
 
     public Game() {
@@ -20,7 +19,6 @@ public class Game {
         Availableships.add(new Destroyer());
         Availableships.add(new LongShip());
         Availableships.add(new Submarine());
-        Emap = new Map();
         map = new Map();
     }
 
@@ -59,7 +57,6 @@ public class Game {
     public void setMap() {
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 15; j++) {
-                Emap.getMap()[i][j] = new Empty();
                 map.getMap()[i][j] = new Empty();
             }
         }
@@ -88,5 +85,9 @@ public class Game {
                 ship = new Empty();
             }
         }
+    }
+
+    public boolean gameover() {
+        return ships.size() == 0 && Availableships.size() == 0;
     }
 }
