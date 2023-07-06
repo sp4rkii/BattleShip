@@ -16,12 +16,57 @@ public class MainSceneController {
     @FXML
     private ImageView image2;
     @FXML
+    private ImageView image4;
+    @FXML
+    private ImageView image5;
+    @FXML
+    private ImageView image6;
+    @FXML
+    private ImageView image7;
+    @FXML
+    private ImageView image8;
+    @FXML
     private ImageView image3;
 
     @FXML
-    void handleDragDropped(DragEvent event) {
+    void handleDragDropped1(DragEvent event) {
         Image img = event.getDragboard().getImage();
         image2.setImage(img);
+
+    }
+
+    @FXML
+    void handleDragDropped2(DragEvent event) {
+        Image img = event.getDragboard().getImage();
+        image4.setImage(img);
+
+    }
+
+    @FXML
+    void handleDragDropped3(DragEvent event) {
+        Image img = event.getDragboard().getImage();
+        image5.setImage(img);
+
+    }
+
+    @FXML
+    void handleDragDropped4(DragEvent event) {
+        Image img = event.getDragboard().getImage();
+        image6.setImage(img);
+
+    }
+
+    @FXML
+    void handleDragDropped5(DragEvent event) {
+        Image img = event.getDragboard().getImage();
+        image7.setImage(img);
+
+    }
+
+    @FXML
+    void handleDragDropped6(DragEvent event) {
+        Image img = event.getDragboard().getImage();
+        image8.setImage(img);
 
     }
 
