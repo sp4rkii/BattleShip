@@ -22,6 +22,14 @@ public class Game {
         map = new Map();
     }
 
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
     public Ships getShip() {
         return ship;
     }
@@ -89,5 +97,9 @@ public class Game {
 
     public boolean gameover() {
         return ships.size() == 0 && Availableships.size() == 0;
+    }
+
+    public void startGame() {
+
     }
 }
