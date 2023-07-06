@@ -80,4 +80,13 @@ public class Game {
             ship = new Empty();
         }
     }
+
+    public void removeShip() {
+        if (!(ship instanceof Empty)) {
+            if (ship.getSpaces() == 0) {
+                ships.remove(ship);
+                ship = new Empty();
+            }
+        }
+    }
 }
