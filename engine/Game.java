@@ -1,105 +1,56 @@
 package engine;
 
 import maps.*;
-import shipExceptions.outOfBoundsException;
-import shipExceptions.overlapException;
-import ships.*;
-import java.awt.*;
-import java.util.ArrayList;
 
 public class Game {
-    private ArrayList<Ships> Availableships = new ArrayList<Ships>();
-    private ArrayList<Ships> ships = new ArrayList<Ships>();
-    private Ships ship = new Empty();
-    private Map map;
+    Board board1;
+
+    Map map1;
+    Board board2;
+    Map map2;
 
     public Game() {
-        Availableships.add(new Carrier());
-        Availableships.add(new Cruiser());
-        Availableships.add(new Destroyer());
-        Availableships.add(new LongShip());
-        Availableships.add(new Submarine());
-        map = new Map();
+        board1 = new Board();
+        map1 = new Map();
+        board2 = new Board();
+        map2 = new Map();
     }
 
-    public Map getMap() {
-        return map;
+    public Board getBoard1() {
+        return board1;
     }
 
-    public void setMap(Map map) {
-        this.map = map;
+    public void setBoard1(Board board1) {
+        this.board1 = board1;
     }
 
-    public Ships getShip() {
-        return ship;
+    public Map getMap1() {
+        return map1;
     }
 
-    public void setShip(Ships ship) {
-        this.ship = ship;
+    public void setMap1(Map map1) {
+        this.map1 = map1;
     }
 
-    public void rotateShip() throws outOfBoundsException, overlapException {
-        ship.rotate();
-        Point[] Coordinates = ship.getCoordinates();
-        for (int i = 0; i < ship.getCoordinates().length; i++) {
-            int x = (int) Coordinates[i].getX();
-            int y = (int) Coordinates[i].getY();
-            if (y < 0 || y > 14 || x < 0 || x > 14) {
-                throw new outOfBoundsException("Invalid coordinates");
-            }
-            for (int j = 0; j < ships.size(); j++) {
-                Ships temp = ships.get(j);
-                if (!(ship.getClass() == temp.getClass())) {
-                    for (int k = 0; k < temp.getCoordinates().length; k++) {
-                        int m = (int) Coordinates[k].getX();
-                        int n = (int) Coordinates[k].getY();
-                        if (x == m && y == n) {
-                            throw new overlapException("Overlapped ships");
-                        }
-                    }
-                }
-            }
-        }
+    public Board getBoard2() {
+        return board2;
     }
 
-    public void setMap() {
-        for (int i = 0; i < 15; i++) {
-            for (int j = 0; j < 15; j++) {
-                map.getMap()[i][j] = new Empty();
-            }
-        }
+    public void setBoard2(Board board2) {
+        this.board2 = board2;
     }
 
-    public void addShip() throws outOfBoundsException, overlapException {
-        if (!(ship instanceof Empty)) {
-            Availableships.remove(ship);
-            ships.add(ship);
-            ship.rotate();
-            rotateShip();
-            Point[] Coordinates = ship.getCoordinates();
-            for (int i = 0; i < ship.getCoordinates().length; i++) {
-                int x = (int) Coordinates[i].getX();
-                int y = (int) Coordinates[i].getY();
-                map.getMap()[x][y] = ship;
-            }
-            ship = new Empty();
-        }
+    public Map getMap2() {
+        return map2;
     }
 
-    public void removeShip() {
-        if (!(ship instanceof Empty)) {
-            if (ship.getSpaces() == 0) {
-                ships.remove(ship);
-                ship = new Empty();
-            }
-        }
+    public void setMap2(Map map2) {
+        this.map2 = map2;
     }
 
     public boolean gameover() {
-        return ships.size() == 0 && Availableships.size() == 0;
+        return (board1.getShips().size() == 0 && board1.getAvailableships().size() == 0)
+                || (board2.getShips().size() == 0 && board2.getAvailableships().size() == 0);
     }
 
-    public void startGame() {
-
-    }
 }
