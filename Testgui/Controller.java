@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    private int gridSize = 50;
+    private int gridSize = 600;
 
     @FXML
     private AnchorPane pane;
@@ -21,17 +21,47 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        int gridSize = 30; // Adjust the grid size as needed
         draggableMakerGrid = new DraggableMakerGrid(pane.getPrefWidth(), pane.getPrefHeight(), gridSize, pane);
-
         backgroundGridHandler = new GridHandler(pane.getPrefWidth(), pane.getPrefHeight(), gridSize, pane);
         backgroundGridHandler.updateGrid();
 
-        Component component = new Component(gridSize, 100, 100);
-        pane.getChildren().add(component.getRectangle());
-        draggableMaker.makeDraggable(component.getRectangle(), gridSize);
+        // Create and add multiple components
+        int rectangleCount = 5; // Number of rectangles to place on the map
+        int mapSize = 15; // Size of the map
 
-        // draggableMakerGrid.makeDraggable(component);
+        // Define positions and sizes of rectangles
+        int[] rectanglePositions = { 110, 0, 101, 10, 111 };
+        int[] rectangleSizes = { 3, 4, 5, 2, 3 };
+
+        for (int i = 0; i < rectangleCount; i++) {
+            int position = rectanglePositions[i];
+            int size = rectangleSizes[i];
+        
+            int row = position / mapSize;
+            int col = position % mapSize;
+        
+            int x = col * gridSize;
+            int y = row * gridSize;
+        
+            if (size % 2 == 0) {
+                x -= (size / 2) * gridSize - (gridSize / 2); // Adjust x position for even-sized rectangles
+                y -= (gridSize / 2); // Adjust y position for even-sized rectangles
+            } else {
+                x -= ((size - 1) / 2) * gridSize; // Adjust x position for odd-sized rectangles
+            }
+        
+            int width = size * gridSize;
+            int height = gridSize;
+        
+            Component component = new Component(width, height, x, y, Orientation.VERTICAL);
+        
+            pane.getChildren().add(component.getImageView());
+            draggableMaker.makeDraggable(component.getImageView(), gridSize);
+        }
+        
+        
 
     }
+
 }
