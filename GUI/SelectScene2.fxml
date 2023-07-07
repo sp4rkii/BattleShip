@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SelectSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SelectScene2Controller">
    <children>
       <GridPane fx:id="gridPane" gridLinesVisible="true" prefHeight="704.0" prefWidth="1080.0" AnchorPane.bottomAnchor="196.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -80,7 +80,7 @@
                   <Font name="Calisto MT" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="NextButton" mnemonicParsing="false" onAction="#SwitchToSelectScene2" prefHeight="102.0" prefWidth="288.0" text="Next">
+            <Button fx:id="StartButton" mnemonicParsing="false" onAction="#SwitchToMainScene" prefHeight="102.0" prefWidth="288.0" text="Start">
                <font>
                   <Font name="Calisto MT" size="20.0" />
                </font>
