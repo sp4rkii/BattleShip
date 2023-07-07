@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Application",
+      "request": "launch",
+      "mainClass": "Testgui.Application",
+      "projectName": "BattleShip_71c15bec"
+    },
+    {
+      "type": "java",
       "name": "App",
       "request": "launch",
       "mainClass": "GUI.App",
