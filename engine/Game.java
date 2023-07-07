@@ -4,16 +4,15 @@ import maps.*;
 
 public class Game {
     Board board1;
-
-    Map map1;
+    Board board11;
     Board board2;
-    Map map2;
+    Board board22;
 
     public Game() {
         board1 = new Board();
-        map1 = new Map();
+        board11 = new Board();
         board2 = new Board();
-        map2 = new Map();
+        board22 = new Board();
     }
 
     public Board getBoard1() {
@@ -24,12 +23,12 @@ public class Game {
         this.board1 = board1;
     }
 
-    public Map getMap1() {
-        return map1;
+    public Board getBoard11() {
+        return board11;
     }
 
-    public void setMap1(Map map1) {
-        this.map1 = map1;
+    public void setBoard11(Board board11) {
+        this.board11 = board11;
     }
 
     public Board getBoard2() {
@@ -40,12 +39,12 @@ public class Game {
         this.board2 = board2;
     }
 
-    public Map getMap2() {
-        return map2;
+    public Board getBoard22() {
+        return board2;
     }
 
-    public void setMap2(Map map2) {
-        this.map2 = map2;
+    public void setBoard22(Board board2) {
+        this.board2 = board2;
     }
 
     public boolean gameover() {
