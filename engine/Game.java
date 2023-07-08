@@ -3,16 +3,12 @@ package engine;
 import maps.*;
 
 public class Game {
+    Board board;
     Board board1;
-    Board board11;
-    Board board2;
-    Board board22;
 
     public Game() {
         board1 = new Board();
-        board11 = new Board();
-        board2 = new Board();
-        board22 = new Board();
+        board = new Board();
     }
 
     public Board getBoard1() {
@@ -23,33 +19,16 @@ public class Game {
         this.board1 = board1;
     }
 
-    public Board getBoard11() {
-        return board11;
+    public Board getBoard() {
+        return board;
     }
 
-    public void setBoard11(Board board11) {
-        this.board11 = board11;
-    }
-
-    public Board getBoard2() {
-        return board2;
-    }
-
-    public void setBoard2(Board board2) {
-        this.board2 = board2;
-    }
-
-    public Board getBoard22() {
-        return board2;
-    }
-
-    public void setBoard22(Board board2) {
-        this.board2 = board2;
+    public void setBoard(Board board) {
+        this.board = board;
     }
 
     public boolean gameover() {
-        return (board1.getShips().size() == 0 && board1.getAvailableships().size() == 0)
-                || (board2.getShips().size() == 0 && board2.getAvailableships().size() == 0);
+        return (board.getShips().size() == 0 && board.getAvailableships().size() == 0);
     }
 
 }

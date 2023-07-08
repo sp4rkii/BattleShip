@@ -7,25 +7,32 @@ public class Component {
     private ImageView imageView;
     private int startPositionX;
     private int startPositionY;
+    private Component ship;
+    boolean isPlaced;
 
-    public Component(int width, int height, int startPositionX, int startPositionY, Orientation orientation) {
+    public Component(int width, int height, int startPositionX, int startPositionY, Orientation orientation,
+            String shipImagePath) {
         this.startPositionX = startPositionX;
         this.startPositionY = startPositionY;
 
-        // Load the image
-        Image image = new Image("Testgui/Background1.png");
+        Image image = new Image(shipImagePath);
 
-        // Create the ImageView and set the image
         imageView = new ImageView(image);
         imageView.setFitWidth(width);
         imageView.setFitHeight(height);
         imageView.setX(startPositionX);
         imageView.setY(startPositionY);
 
-        // Set the orientation
         if (orientation == Orientation.VERTICAL) {
-            imageView.setRotate(90); // Rotate the image 90 degrees to display it vertically
+            imageView.setRotate(90);
         }
+        imageView.setOnMouseClicked(event -> {
+            setShip(this);
+        });
+    }
+
+    public void setShip(Component ship) {
+        this.ship = ship;
     }
 
     public ImageView getImageView() {
@@ -38,5 +45,9 @@ public class Component {
 
     public int getStartPositionY() {
         return startPositionY;
+    }
+
+    public void rotate() {
+        imageView.setRotate(imageView.getRotate() + 90);
     }
 }

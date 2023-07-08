@@ -25,7 +25,7 @@ public class DraggableMakerGrid extends GridBase {
         });
     }
 
-    public void makeDraggable(Component component) {
+    public void makeDraggable(Component component,Component ship) {
         Node node = component.getImageView();
         node.setOnMouseDragged(mouseEvent -> {
             mouseAnchorX = mouseEvent.getSceneX();
