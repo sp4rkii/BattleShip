@@ -1,2 +1,2 @@
 # BattleShip-1
-this project is aboput a battleship game
+this project is about a battleship game
